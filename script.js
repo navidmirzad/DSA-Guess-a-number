@@ -12,7 +12,7 @@ function start() {
 }
 
 function generateRandomNumber() {
-    return 42;
+    return Math.floor(Math.random() * 101);
 }
 
 function receiveGuess(event) {
@@ -46,13 +46,13 @@ function guessIsCorrect(guess) {
 function guessIsTooLow(guess) {
     console.log("Too low");
     const list = document.querySelector("#guess-list");
-    const html = `<li><p>You guessed ${guess} - that was too low, try again</p></li>`
+    const html = `<li><p>You guessed ${guess} - Low go higher, try again</p></li>`
     list.insertAdjacentHTML("beforeend", html)
 }
 
 function guessIsTooHigh(guess) {
     console.log("Too high");
     const list = document.querySelector("#guess-list");
-    const html = `<li><p>You guessed ${guess} - that was too high, try again</p></li>`
+    const html = `<li><p>You guessed ${guess} - High go lower, try again</p></li>`
     list.insertAdjacentHTML("beforeend", html)
 }
