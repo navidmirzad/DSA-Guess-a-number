@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Guess The Number</h1>
+
+    <p>Welcome to Guess The Number</p>
+    <p>Im thinking of a number between 1 - 100 try to guess it</p>
+
+    <ul id="guess-list">
+        <li><p>You guessed 54 - that was too high, try again</p></li>
+        <li><p>You guessed 32 - that was too low, try again</p></li>
+    </ul>
     
+
+    <form action="guess-form">
+        <label for="">Your guess: 
+            <input type="number" id="guess" name="guess">
+        </label>
+        <button id="guess-button">Guess</button>
+    </form>
+
+
 <script src="script.js"></script>
-    
 </body>
 </html>
