@@ -2,30 +2,57 @@
 
 window.addEventListener("load", start);
 
+let number;
+
 function start() {
     console.log("JavaScript is running");
+    number = generateRandomNumber();
+    document.querySelector("#guess-form")
+    addEventListener("submit", receiveGuess);
 }
 
 function generateRandomNumber() {
-
+    return 42;
 }
 
-function receiveGuess() {
+function receiveGuess(event) {
+    event.preventDefault();
 
+    const form = event.target;
+    const value = form.guess.valueAsNumber;
+
+    console.log("received guess");
+    console.log(value);
+    checkGuess(value);
 }
 
-function checkGuess() {
-    
+function checkGuess(guess) {
+    if (guess === number ) {
+        guessIsCorrect(guess) 
+    } else if (guess < number) {
+        guessIsTooLow(guess) 
+    } else {
+        guessIsTooHigh(guess);
+    }
 }
 
-function guessIsCorrect() {
-
+function guessIsCorrect(guess) {
+    console.log("Correct");
+    const list = document.querySelector("#guess-list");
+    const html = `<li><p>You guessed ${guess} - Right on!</p></li>`
+    list.insertAdjacentHTML("beforeend", html)
 }
 
-function guessIsTooLow() {
-
+function guessIsTooLow(guess) {
+    console.log("Too low");
+    const list = document.querySelector("#guess-list");
+    const html = `<li><p>You guessed ${guess} - that was too low, try again</p></li>`
+    list.insertAdjacentHTML("beforeend", html)
 }
 
-function guessIsTooHigh() {
-    
+function guessIsTooHigh(guess) {
+    console.log("Too high");
+    const list = document.querySelector("#guess-list");
+    const html = `<li><p>You guessed ${guess} - that was too high, try again</p></li>`
+    list.insertAdjacentHTML("beforeend", html)
 }
